@@ -9,7 +9,7 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id; // Can be other data structures. (DD)
+    private long id;
 
     private String firstName;
     private String lastName;

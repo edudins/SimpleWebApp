@@ -21,9 +21,7 @@ public class Product {
     // To have a table, that holds information on both Relations
     private Set<Customer> customers = new HashSet<>();
 
-    public Product() {
-        // As required by JPA (zero-args constructor)
-    }
+    public Product() { }
 
     public Product(String pName, String isbn) {
         this.pName = pName;

@@ -61,4 +61,29 @@ public class Product {
     public void setCustomers(Set<Customer> customers) {
         this.customers = customers;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", pName='" + pName + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", customers=" + customers +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        return id == product.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (id ^ (id >>> 32));
+    }
 }

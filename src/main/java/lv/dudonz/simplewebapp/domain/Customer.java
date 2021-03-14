@@ -57,5 +57,30 @@ public class Customer {
         this.products = products;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", products=" + products +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Customer customer = (Customer) o;
+
+        return id == customer.id;
+//        return id != null ? id.equals(author.id) : author.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (id ^ (id >>> 32));
+//        return id != null ? id.hashCode() : 0;
+    }
 }

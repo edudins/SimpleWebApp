@@ -1,6 +1,7 @@
 package lv.dudonz.simplewebapp.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -18,16 +19,15 @@ public class Product {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "customer_id"))
     // To have a table, that holds information on both Relations
-    private Set<Customer> customers;
+    private Set<Customer> customers = new HashSet<>();
 
     public Product() {
         // As required by JPA (zero-args constructor)
     }
 
-    public Product(String pName, String isbn, Set<Customer> customers) {
+    public Product(String pName, String isbn) {
         this.pName = pName;
         this.isbn = isbn;
-        this.customers = customers;
     }
 
     public long getId() {

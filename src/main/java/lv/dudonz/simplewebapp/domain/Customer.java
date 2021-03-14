@@ -1,6 +1,7 @@
 package lv.dudonz.simplewebapp.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -12,17 +13,17 @@ public class Customer {
 
     private String firstName;
     private String lastName;
+
     @ManyToMany(mappedBy = "customers")
-    private Set<Product> products;
+    private Set<Product> products = new HashSet<>();
 
     public Customer() {
         // As required by JPA (zero-args constructor)
     }
 
-    public Customer(String firstName, String lastName, Set<Product> products) {
+    public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.products = products;
     }
 
     public long getId() {

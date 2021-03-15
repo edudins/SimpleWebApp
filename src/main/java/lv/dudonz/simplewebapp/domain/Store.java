@@ -1,9 +1,8 @@
 package lv.dudonz.simplewebapp.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Store {
@@ -20,6 +19,10 @@ public class Store {
     private String cPhoneNr;
     private String cEmail;
 
+    @OneToMany
+    @JoinColumn(name = "store_id")
+    private Set<Product> products = new HashSet<>();
+
     public Store() { }
 
     public Store(String storeName, String streetAddress, String city, String state, String zip, String cPhoneNr, String cEmail) {
@@ -30,6 +33,14 @@ public class Store {
         this.zip = zip;
         this.cPhoneNr = cPhoneNr;
         this.cEmail = cEmail;
+    }
+
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
     }
 
     public long getId() {
@@ -86,6 +97,14 @@ public class Store {
 
     public void setcEmail(String cEmail) {
         this.cEmail = cEmail;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 
     @Override

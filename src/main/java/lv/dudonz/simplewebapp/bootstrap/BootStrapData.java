@@ -24,29 +24,9 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("Bootstrap started: ");
+        System.out.println("Bootstrap started... ");
 
-        // Initial Tests
-        Customer leonardo = new Customer("Leonardo", "TMNT");
-        Product swords = new Product("Ninja Sword", "1001010");
-        leonardo.getProducts().add(swords);
-        swords.getCustomers().add(leonardo);
-
-        customerRepository.save(leonardo);
-        productRepository.save(swords);
-
-        Customer raphael = new Customer("Raphael", "TMNT");
-        Product sai = new Product("Sai (Pair)", "2002020");
-        raphael.getProducts().add(sai);
-        sai.getCustomers().add(raphael);
-
-        customerRepository.save(raphael);
-        productRepository.save(sai);
-
-        System.out.println("Number of Customers: " + customerRepository.count());
-        System.out.println("Number of Products: " + productRepository.count());
-
-        // Further Tests
+        // Create the Store
         Store firstStore = new Store("Empire State Building",
                 "W 34th St",
                 "New York",
@@ -55,7 +35,41 @@ public class BootStrapData implements CommandLineRunner {
                 "+1 212-736-3100",
                 "info@esbnyc.com");
         storeRepository.save(firstStore);
+
+        // Print for testing
         System.out.println("New store created: " + firstStore.toString());
         System.out.println("Store count: " + storeRepository.count());
+
+        // Create Products
+        Product swords = new Product("Ninja Sword", "1001010");
+        Product sai = new Product("Sai (Pair)", "2002020");
+        productRepository.save(swords);
+        productRepository.save(sai);
+
+        // Place both Products in Store
+        swords.setStore(firstStore);
+        firstStore.getProducts().add(swords);
+        sai.setStore(firstStore);
+        firstStore.getProducts().add(sai);
+
+        storeRepository.save(firstStore);
+
+        // Create Customers
+        Customer leonardo = new Customer("Leonardo", "TMNT");
+        Customer raphael = new Customer("Raphael", "TMNT");
+
+        leonardo.getProducts().add(swords);
+        swords.getCustomers().add(leonardo);
+
+        raphael.getProducts().add(sai);
+        sai.getCustomers().add(raphael);
+
+        customerRepository.save(leonardo);
+        customerRepository.save(raphael);
+
+        System.out.println("Number of Customers: " + customerRepository.count());
+        System.out.println("Number of Products: " + productRepository.count());
+
+        System.out.println("Store number of products " + firstStore.getProducts().size());
     }
 }

@@ -14,6 +14,9 @@ public class Product {
     private String pName;
     private String isbn;
 
+    @ManyToOne
+    private Store store;
+
     @ManyToMany
     @JoinTable(name = "customer_product",
             joinColumns = @JoinColumn(name = "product_id"),
@@ -58,6 +61,14 @@ public class Product {
 
     public void setCustomers(Set<Customer> customers) {
         this.customers = customers;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
     }
 
     @Override

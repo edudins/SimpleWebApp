@@ -20,7 +20,7 @@ public class ProductController {
         // Get a list of products
         model.addAttribute("products", productRepository.findAll());
 
-        return "products";
+        return "products/list";
     }
 
 }

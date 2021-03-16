@@ -11,8 +11,10 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String pName;
+    private String name;
     private String isbn;
+    private String description;
+    private long priceInPennies;
 
     @ManyToOne
     private Store store;
@@ -26,9 +28,11 @@ public class Product {
 
     public Product() { }
 
-    public Product(String pName, String isbn) {
-        this.pName = pName;
+    public Product(String name, String isbn, String description, long priceInPennies) {
+        this.name = name;
         this.isbn = isbn;
+        this.description = description;
+        this.priceInPennies = priceInPennies;
     }
 
     public long getId() {
@@ -39,12 +43,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getpName() {
-        return pName;
+    public String getName() {
+        return name;
     }
 
-    public void setpName(String pName) {
-        this.pName = pName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getIsbn() {
@@ -55,12 +59,20 @@ public class Product {
         this.isbn = isbn;
     }
 
-    public Set<Customer> getCustomers() {
-        return customers;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCustomers(Set<Customer> customers) {
-        this.customers = customers;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public long getPriceInPennies() {
+        return priceInPennies;
+    }
+
+    public void setPriceInPennies(long priceInPennies) {
+        this.priceInPennies = priceInPennies;
     }
 
     public Store getStore() {
@@ -71,13 +83,23 @@ public class Product {
         this.store = store;
     }
 
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
                 "id=" + id +
-                ", pName='" + pName + '\'' +
+                ", name='" + name + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", customers=" + customers +
+                ", description='" + description + '\'' +
+                ", priceInPennies=" + priceInPennies +
+                ", store=" + store +
                 '}';
     }
 

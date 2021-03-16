@@ -9,17 +9,17 @@
 
     <table>
         <tr>
-            <th>ID</th>
             <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
             <th>isbn</th>
-            <th>Store</th>
         </tr>
         <!-- FOR EACH BOOK RENDER THIS ELEMENT -->
         <tr th:each="product : ${products}">
-            <td th:text="${product.id}"></td>
-            <td th:text="${product.pName}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.priceInPennies}"></td>
             <td th:text="${product.isbn}"></td>
-            <td th:text="${product.store.storeName}"></td>
         </tr>
         <!-- END -->
     </table>

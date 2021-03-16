@@ -40,36 +40,11 @@ public class BootStrapData implements CommandLineRunner {
         System.out.println("New store created: " + firstStore.toString());
         System.out.println("Store count: " + storeRepository.count());
 
-        // Create Products
-        Product swords = new Product("Ninja Sword", "1001010");
-        Product sai = new Product("Sai (Pair)", "2002020");
-        productRepository.save(swords);
-        productRepository.save(sai);
+        for (int i=1; i<11; i++) {
+            Product product = new Product("Product_" + i, "11111", "Lorem ipsum dolor sit amet", 900_00);
+            productRepository.save(product);
+        }
 
-        // Place both Products in Store
-        swords.setStore(firstStore);
-        firstStore.getProducts().add(swords);
-        sai.setStore(firstStore);
-        firstStore.getProducts().add(sai);
-
-        storeRepository.save(firstStore);
-
-        // Create Customers
-        Customer leonardo = new Customer("Leonardo", "TMNT");
-        Customer raphael = new Customer("Raphael", "TMNT");
-
-        leonardo.getProducts().add(swords);
-        swords.getCustomers().add(leonardo);
-
-        raphael.getProducts().add(sai);
-        sai.getCustomers().add(raphael);
-
-        customerRepository.save(leonardo);
-        customerRepository.save(raphael);
-
-        System.out.println("Number of Customers: " + customerRepository.count());
-        System.out.println("Number of Products: " + productRepository.count());
-
-        System.out.println("Store number of products " + firstStore.getProducts().size());
+        System.out.println("Products in repository: " + productRepository.count());
     }
 }

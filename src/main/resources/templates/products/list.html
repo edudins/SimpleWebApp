@@ -2,27 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <!--
+    Initial viewport: if at least 500px required for the design, can be set in width="".
+    So width basically translates to "minimal size".
+    - from MDN (23-03-21)
+    -->
+    <meta name="viewport" content="width=device-width", initial-scale="1">
     <title>Product Page</title>
+    <link rel='icon' href='favicon.ico' type='image/x-icon'>
 </head>
 <body>
-    <h1>Product List</h1>
 
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>isbn</th>
-        </tr>
-        <!-- FOR EACH BOOK RENDER THIS ELEMENT -->
-        <tr th:each="product : ${products}">
-            <td th:text="${product.name}"></td>
-            <td th:text="${product.description}"></td>
-            <td th:text="${product.priceInPennies}"></td>
-            <td th:text="${product.isbn}"></td>
-        </tr>
-        <!-- END -->
-    </table>
+    <section class="navbar">
+
+    </section>
+
+    <section class="product-container">
+
+    </section>
+
+    <section class="footnote">
+        @2021, Edgars Dudins
+    </section>
 
 </body>
 </html>

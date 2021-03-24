@@ -12,7 +12,10 @@
 	<artifactId>SimpleWebApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SimpleWebApp</name>
-	<description>Built using &quot;SpringFrameworkGuru&quot; on Youtube as a guide.</description>
+	<description>
+		Started building using &quot;SpringFrameworkGuru&quot; on Youtube as a guide.
+		Continuing at end of tutorial.
+	</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

@@ -10,15 +10,25 @@
     <meta name="viewport" content="width=device-width", initial-scale="1">
     <title>Product Page</title>
     <link rel='icon' href='favicon.ico' type='image/x-icon'>
+    <link rel="stylesheet" type="text/css" media="all" href="../stylesheets/style.css" th:href="@{/templates/stylesheets/style.css}" />
 </head>
 <body>
 
     <div class="navbar">
-
+        <a href="#" class="nav-link">products</a>
+        <a href="#" class="nav-link">services</a>
+        <a href="#" class="nav-link">warranty</a>
+        <a href="#" class="nav-link">about us</a>
     </div>
+    <h1>Product Page</h1>
 
     <div class="product-container">
-
+        <section class="product" th:each="product : ${products}">
+            <h2 class="product-title" th:text="${product.name}">Product Name</h2>
+            <div class="isbn" th:text="${product.isbn}">isbn</div>
+            <p class="product-description" th:text="${product.description}">Product Description</p>
+            <div class="product-price" th:text="${product.price}">Product Price</div>
+        </section>
     </div>
 
     <div class="footnote">

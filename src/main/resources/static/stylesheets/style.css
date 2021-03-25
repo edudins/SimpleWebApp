@@ -1,3 +1,26 @@
+/* SimpleWebApp - an E-Commerce Template */
+
+/* @Author: Edgars Dudins */
+/* @Version: 1.00 */
+/* @Revised: 25-03-2021 */
+
+/* ===== elements ===== */
+body {
+    margin: 0 0.5em 0 0.5em;
+    background-color: #ecedef;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+/* ===== classes ===== */
+.footnote {
+    position: fixed;
+    bottom: 0;
+}
+
+/* ===== product-flex ===== */
 .product-container {
-    background-color: red;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
